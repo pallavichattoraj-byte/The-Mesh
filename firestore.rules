@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isValidId(id) { 
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); 
+    }
+    
+    function incoming() { 
+      return request.resource.data; 
+    }
+
+    function isValidLead(data) {
+      return data.keys().hasAll(['email', 'pricePoint', 'createdAt']) &&
+             data.keys().size() == 3 &&
+             data.email is string && data.email.size() > 3 && data.email.size() <= 256 &&
+             data.email.matches('^[^@]+@[^@]+\\.[^@]+$') &&
+             data.pricePoint is string && data.pricePoint.size() <= 10 &&
+             data.createdAt == request.time;
+    }
+
+    // --- Collections ---
+    match /leads/{leadId} {
+      // Public can submit signups/leads
+      allow create: if isValidId(leadId) && isValidLead(incoming());
+      
+      // Admin could read, but we'll stick to Console access for simplicity and security 
+      // unless an admin user is explicitly added.
+    }
+  }
+}

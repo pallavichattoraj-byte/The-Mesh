@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  --color-primary-red: #ff3b3b;
+  --color-primary-blue: #2e5bff;
+  --color-primary-yellow: #ffcc00;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans selection:bg-primary-yellow;
+    min-height: 100vh;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.brutalist-card {
+  @apply border-2 border-ink bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
+}
+
+.brutalist-button {
+  @apply border-2 border-ink px-6 py-3 font-bold uppercase tracking-tight transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+}
+
+.tight-text {
+  @apply leading-[0.9] tracking-tighter;
+}

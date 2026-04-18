@@ -1,0 +1,21 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Information provided by potential customers in the pricing survey.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email", "description": "User email address" },
+        "pricePoint": { "type": "string", "description": "The price the user selected in the survey" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the lead was created" }
+      },
+      "required": ["email", "pricePoint", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collection of survey responses and email signups."
+    }
+  }
+}
