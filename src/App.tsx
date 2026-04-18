@@ -252,7 +252,7 @@ export default function App() {
 
       <footer className="border-t-2 border-ink p-10 bg-zinc-100 text-center space-y-4">
         <p className="font-black text-xs uppercase">© THE MESH 2026 — DESIGNED FOR SMART COMMUTERS</p>
-        <p className="text-xl text-primary-red font-mono uppercase tracking-[0.2em] font-black">Build Revision: 2.0.5-V3</p>
+        <p className="text-xl text-primary-red font-mono uppercase tracking-[0.2em] font-black">Build Revision: 2.0.6-V4-FIXED</p>
         <div className="flex justify-center gap-6">
            <Zap className="w-5 h-5 text-primary-yellow" />
            <Recycle className="w-5 h-5 text-primary-blue" />
