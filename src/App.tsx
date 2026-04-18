@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Leaf, Recycle, Zap, CheckCircle2, ShoppingBag, Trash2, Key, Star, Loader2 } from 'lucide-react';
 import { saveLead } from './lib/firebase';
 
-import logoImg from './assets/v3-logo.png';
-import productImg from './assets/v3-product.png';
-import lifestyleImg from './assets/v3-lifestyle.png';
-import recycleImg from './assets/v3-recycle.png';
-import bioImg from './assets/v3-bio.png';
-import wasteFreeImg from './assets/v3-waste-free.png';
-import holdsUptoImg from './assets/v3-holds-upto.png';
+import logoImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547438/logo_zt2dym.png';
+import productImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776548000/product_vf7wce.png';
+import lifestyleImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547439/lifetstyle_ugo40p.png';
+import recycleImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547438/Recycle_yg3cbn.png';
+import bioImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547437/Bio_tc3khd.png';
+import wasteFreeImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547438/Waste-free_qxqbce.png';
+import holdsUptoImg from 'https://res.cloudinary.com/djcynnvgr/image/upload/v1776547437/Holds_Upto_n29qhi.png';
 
 const ProductIllustration = () => (
   <motion.div
@@ -27,6 +27,7 @@ const ProductIllustration = () => (
       src={productImg}
       alt="MESH BAG PRODUCT" 
       className="w-full max-w-none h-auto object-cover"
+      referrerPolicy="no-referrer"
     />
   </motion.div>
 );
@@ -59,6 +60,7 @@ const TickerTape = () => {
               src={icon.src} 
               alt={icon.alt} 
               className="h-20 md:h-28 w-auto object-contain"
+              referrerPolicy="no-referrer"
             />
           </div>
         ))}
@@ -110,12 +112,18 @@ export default function App() {
 
   return (
     <div className="bg-paper min-h-screen border-x-2 border-ink max-w-2xl mx-auto shadow-[12px_0_0_#ffcc00,-12px_0_0_#ff3b3b]">
+      {/* GLOBAL DEBUG BANNER - REMOVE AFTER VERIFYING IMAGES */}
+      <div className="bg-primary-red text-white text-center p-2 font-black text-xl animate-pulse sticky top-0 z-[100]">
+        DEPLOYMENT V6 ACTIVE - IF VISIBLE, IMAGES SHOULD LOAD
+      </div>
+
       {/* NAV */}
       <nav className="border-b-2 border-ink p-6 flex flex-col items-center gap-4 bg-white sticky top-0 z-50">
         <img 
           src={logoImg} 
           alt="THE MESH" 
           className="h-14 md:h-18 w-auto object-contain" 
+          referrerPolicy="no-referrer"
         />
         <div className="bg-primary-yellow border border-ink px-3 py-1 font-bold text-xs uppercase">Pre-Build</div>
       </nav>
@@ -177,6 +185,7 @@ export default function App() {
               src={lifestyleImg} 
               alt="Lifestyle" 
               className="w-full h-auto object-cover" 
+              referrerPolicy="no-referrer"
             />
           </div>
 
@@ -252,7 +261,7 @@ export default function App() {
 
       <footer className="border-t-2 border-ink p-10 bg-zinc-100 text-center space-y-4">
         <p className="font-black text-xs uppercase">© THE MESH 2026 — DESIGNED FOR SMART COMMUTERS</p>
-        <p className="text-xl text-primary-red font-mono uppercase tracking-[0.2em] font-black">Build Revision: 2.0.6-V4-FIXED</p>
+        <p className="text-xl text-primary-red font-mono uppercase tracking-[0.2em] font-black">Build Revision: 2.0.8-V6-ULTRA-FIX</p>
         <div className="flex justify-center gap-6">
            <Zap className="w-5 h-5 text-primary-yellow" />
            <Recycle className="w-5 h-5 text-primary-blue" />
